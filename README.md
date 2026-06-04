@@ -1,20 +1,20 @@
-# 💰 Aplikasi Keuangan CLI (C++)
+# 💰 Financial CLI Application (C++)
 
-Aplikasi pencatat keuangan berbasis teks (Command Line Interface) yang dirancang menggunakan bahasa C++. Proyek ini dibuat sebagai bentuk implementasi pembelajaran logika pemrograman, Array, File I/O, kontrol percabangan, serta manipulasi string di semester 2 Teknik Informatika.
+A text-based (Command Line Interface) financial tracker application designed using C++. This project was built as a practical implementation of programming logic, Arrays, File I/O, conditional control structures, and string manipulation from my 1st semester in Informatics Engineering. This is my very first project in this 2nd semester.
 
-## ✨ Fitur Utama
-* **🛡️ Registrasi Akun & Validasi Password:** Pengguna dapat membuat akun sendiri dengan standarisasi keamanan password (wajib kombinasi Huruf Besar, Huruf Kecil, dan Angka dengan minimal 6 karakter).
-* **💾 Sistem Auto-Login (File Database):** Data akun tersimpan secara permanen di dalam file teks lokal. Aplikasi otomatis mendeteksi jika pengguna sudah memiliki akun, sehingga tidak perlu mendaftar ulang saat aplikasi dibuka kembali.
-* **📊 Manajemen Transaksi Keuangan:** Mendukung pencatatan jenis transaksi **Pemasukan** dan **Pengeluaran** (maksimal 100 data data sementara).
-* **🎨 Interfasi CLI Berwarna (ANSI Color):** Tampilan nominal dinamis yang memanjakan mata; warna **Hijau** untuk Pemasukan/Surplus dan warna **Merah** untuk Pengeluaran/Minus.
-* **📈 Kalkulator Saldo Otomatis:** Menghitung total akhir keuangan secara *real-time* lengkap dengan status kesehatan finansial pengguna.
-* **🗑️ Hapus Transaksi Terstruktur:** Menghapus data transaksi tertentu dengan logika pergeseran indeks array yang rapi.
+## ✨ Key Features
+* **🛡️ Account Registration & Password Validation:** Users can create an account with password security standards (requires a combination of Uppercase, Lowercase, and Numbers with a minimum of 6 characters).
+* **💾 Auto-Login System (File Database):** Account data is permanently stored in a local text file. The application automatically detects if the user already has an account, eliminating the need to re-register when restarting the app.
+* **📊 Financial Transaction Management:** Supports recording of **Income** and **Expense** transaction types (up to 100 temporary data entries).
+* **🎨 Colored CLI Interface (ANSI Color):** Dynamic and visually appealing display; **Green** for Income/Surplus and **Red** for Expense/Deficit.
+* **📈 Automatic Balance Calculator:** Computes the final financial balance in real-time, complete with the user's financial health status.
+* **🗑️ Structured Transaction Deletion:** Deletes specific transaction data using a clean array index shifting logic.
 
-## 🛠️ Cara Menjalankan Aplikasi
-1. Clone atau unduh file `Aplikasi Keuangan.cpp` di atas.
-2. Buka file menggunakan IDE favoritmu (VS Code, Dev-C++, atau Code::Blocks).
-3. Lakukan *Compile* dan *Run* program.
-4. Jika baru pertama kali dijalankan, sistem akan meminta pendaftaran akun baru secara otomatis.
+## 🛠️ How to Run the Application
+1. Clone or download the `Aplikasi Keuangan.cpp` file.
+2. Open the file using your favorite IDE (VS Code, Dev-C++, or Code::Blocks).
+3. Compile and Run the program.
+4. If run for the first time, the system will automatically prompt for a new account registration.
 
 ---
-*Proyek ini dikembangkan secara bertahap demi melatih fundamental pemrograman yang kuat.*
+*This project is being developed step-by-step to build a strong fundamental in programming.*
