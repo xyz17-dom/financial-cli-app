@@ -136,8 +136,9 @@ int main() {
         cout << "1. Tambah Transaksi" << endl;
         cout << "2. Tampilkan Transaksi & Total Saldo" << endl;    
         cout << "3. Hapus Transaksi" << endl;
-        cout << "4. Keluar" << endl;
-        cout << "Pilih menu (1-4): "; 
+        cout << "4. Cari Transaksi" << endl;
+        cout << "5. Keluar" << endl;
+        cout << "Pilih menu (1-5): "; 
         cin >> pilihan;
 
         switch(pilihan) {
@@ -250,14 +251,49 @@ int main() {
             }
             
             case 4:
-                cout << "Terima kasih telah menggunakan aplikasi ini :>" << endl;
-                break;
-                
-            default:
-                cout << KUNING << "[Peringatan] Pilihan tidak valid! Silahkan coba lagi." << RESET << "\n" << endl;
-        }
-        
-    } while(pilihan != 4);
+                cout << "\n--- Cari Transaksi ---" << endl;
+                if (jumlahTransaksi == 0) {
+                	cout << KUNING << "[Info] Belum ada transaksi yang dicatat. Tidak bisa mencari." << RESET << "\n" << endl;
+				} else {
+					string kataKunci;
+					cout << "Masukkan kata kunci transaksi yang dicari: ";
+					cin >> kataKunci;
+					
+					cout << "\n--- Hasil Pencarian untuk '" << kataKunci << "' ---" << endl;
+					bool ditemukan = false;
+					int nomorHasil = 1;
+				
+					// Melakukan looping dari awal sampai akhir array transaksi
+					for (int i = 0; i < jumlahTransaksi; i++) {
+						// Cek apakah nama transaksi mengandung kata kunci
+						if (menuTransaksi[i].find(kataKunci) != string::npos) {
+							ditemukan = true;
+							
+							// Tampilkann hasil pencarian sesuai tipenya
+							if (tipeTransaksi[i] == "Pemasukan") {
+								cout << nomorHasil << ". " << menuTransaksi[i] << " : " << HIJAU << "+Rp " << nominalTransaksi[i] << RESET << " (" << tipeTransaksi[i] << ")" << endl;
+							} else {
+								cout << nomorHasil << ". " << menuTransaksi[i] << " : " << MERAH << "-Rp " << nominalTransaksi[i] << RESET << " (" << tipeTransaksi[i] << ")" << endl;
+							}
+							nomorHasil++;
+						}
+					}
+					
+					if (!ditemukan) {
+						cout << MERAH << "[Info] Tidak ada transaksi yang cocok dengan kata kunci tersebut." << RESET << endl;
+					}
+					break;
+				}
+				
+			case 5:
+				cout << "Terima kasih telah menggunkaan aplikasi ini :>" << endl;
+				break;
+				
+				default:
+					cout << KUNING << "[Peringatan] Pilihan tidak valid! Silahkan coba lagi." << RESET << endl;				
+    	}
+	 
+	} while(pilihan != 5);
     
     return 0;    
 }
