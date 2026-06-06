@@ -32,7 +32,8 @@ A C++ based Command Line Interface (CLI) financial application designed to track
 5. Ubah Password Akun
 6. Keluar
 
-⚙️ **How to Run Locally**
+## ⚙️ How to Run Locally
+
 1. Clone this repository to your local machine:
 git clone [https://github.com/xyz17-dom/financial-cli-app.git](https://github.com/xyz17-dom/financial-cli-app.git)
 2. Navigate to the project directory:
@@ -40,7 +41,7 @@ cd financial-cli-app
 3. Compile the source code using g++:
 g++ financial_app.cpp -o FinancialApp
 4. Execute the compiled binary program:
-**-**On Linux/macOS: ./FinancialApp
-**-**On Windows (Command Prompt/PowerShell): FinancialApp.exe
+- On Linux/macOS: ./FinancialApp
+- On Windows (Command Prompt/PowerShell): FinancialApp.exe
 
-_Developed as an independent portfolio project by second-semester computer science students_
+Developed as an independent portfolio project by second-semester computer science students
