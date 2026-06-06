@@ -114,6 +114,7 @@ int main() {
     string menuTransaksi[100];
     int nominalTransaksi[100];
     string tipeTransaksi[100];
+    string tanggalTransaksi[100];
     int jumlahTransaksi = 0;
     int pilihan;
         
@@ -122,7 +123,8 @@ int main() {
     if (fileTransaksiMasuk.is_open()) {
         while (fileTransaksiMasuk >> menuTransaksi[jumlahTransaksi]
                                  >> nominalTransaksi[jumlahTransaksi]
-                                 >> tipeTransaksi[jumlahTransaksi]) {
+                                 >> tipeTransaksi[jumlahTransaksi]
+								 >> tanggalTransaksi[jumlahTransaksi]) {
             jumlahTransaksi++;
         }
         fileTransaksiMasuk.close();
@@ -137,8 +139,9 @@ int main() {
         cout << "2. Tampilkan Transaksi & Total Saldo" << endl;    
         cout << "3. Hapus Transaksi" << endl;
         cout << "4. Cari Transaksi" << endl;
-        cout << "5. Keluar" << endl;
-        cout << "Pilih menu (1-5): "; 
+        cout << "5. Ubah Password Akun" << endl;
+        cout << "6. Keluar" << endl;
+        cout << "Pilih menu (1-6): "; 
         cin >> pilihan;
 
         switch(pilihan) {
@@ -160,12 +163,17 @@ int main() {
                     tipeTransaksi[jumlahTransaksi] = "Pengeluaran";
                 }
                 
+                // INPUT TANGGAL BARU
+            	cout << "Masukkan tanggal transaksi: ";
+            	cin >> tanggalTransaksi[jumlahTransaksi];
+            	
                 // SIMPAN LANGSUNG KE FILE TRANSAKSI WITH SPACES
                 ofstream fileTransaksiKeluar("database_transaksi.txt", ios::app);
                 if (fileTransaksiKeluar.is_open()) {
                     fileTransaksiKeluar << menuTransaksi[jumlahTransaksi] << " "
                                         << nominalTransaksi[jumlahTransaksi] << " "
-                                        << tipeTransaksi[jumlahTransaksi] << endl;
+                                        << tipeTransaksi[jumlahTransaksi] << " "
+										<< tanggalTransaksi[jumlahTransaksi] << endl;
                     fileTransaksiKeluar.close();
                 }
                 
@@ -184,10 +192,10 @@ int main() {
                     
                     for (int i = 0; i < jumlahTransaksi; i++) {
                         if (tipeTransaksi[i] == "Pemasukan") {
-                            cout << i + 1 << ". " << menuTransaksi[i] << " : " << HIJAU << "+Rp " << nominalTransaksi[i] << RESET << " (" << tipeTransaksi[i] << ")" << endl;
+                            cout << i + 1 << ". [" << tanggalTransaksi[i] << "] " << menuTransaksi[i] << " : " << HIJAU << "+Rp " << nominalTransaksi[i] << RESET << " (" << tipeTransaksi[i] << ")" << endl;
                             totalPemasukan += nominalTransaksi[i];
                         } else {
-                            cout << i + 1 << ". " << menuTransaksi[i] << " : " << MERAH << "-Rp " << nominalTransaksi[i] << RESET << " (" << tipeTransaksi[i] << ")" << endl;
+                            cout << i + 1 << ". [" << tanggalTransaksi[i] << "] " << menuTransaksi[i] << " : " << MERAH << "-Rp " << nominalTransaksi[i] << RESET << " (" << tipeTransaksi[i] << ")" << endl;
                             totalPengeluaran += nominalTransaksi[i];
                         }    
                     }
@@ -216,7 +224,7 @@ int main() {
                 } else {
                     cout << "Daftar Transaksi Saat Ini: " << endl;
                     for (int i = 0; i < jumlahTransaksi; i++) {
-                        cout << i + 1 << ". " << menuTransaksi[i] << " : Rp " << nominalTransaksi[i] << " (" << tipeTransaksi[i] << ")" << endl;
+                        cout << i + 1 << ". [" << tanggalTransaksi[i] << "] " << menuTransaksi[i] << " : Rp " << nominalTransaksi[i] << " (" << tipeTransaksi[i] << ")" << endl;
                     }
                     
                     int indeksHapus;
@@ -229,6 +237,7 @@ int main() {
                             menuTransaksi[i] = menuTransaksi[i + 1];
                             nominalTransaksi[i] = nominalTransaksi[i + 1];
                             tipeTransaksi[i] = tipeTransaksi[i + 1];
+                            tanggalTransaksi[i] = tanggalTransaksi[i + 1];
                         }
                         jumlahTransaksi--;
                         
@@ -238,7 +247,8 @@ int main() {
                             for (int i = 0; i < jumlahTransaksi; i++) {
                                 fileTransaksiKeluar << menuTransaksi[i] << " "
                                                     << nominalTransaksi[i] << " "
-                                                    << tipeTransaksi[i] << endl;
+                                                    << tipeTransaksi[i] << " "
+													<< tanggalTransaksi[i] << endl;
                             }
                             fileTransaksiKeluar.close();
                         }
@@ -271,9 +281,9 @@ int main() {
 							
 							// Tampilkann hasil pencarian sesuai tipenya
 							if (tipeTransaksi[i] == "Pemasukan") {
-								cout << nomorHasil << ". " << menuTransaksi[i] << " : " << HIJAU << "+Rp " << nominalTransaksi[i] << RESET << " (" << tipeTransaksi[i] << ")" << endl;
+								cout << nomorHasil << ". [" << tanggalTransaksi[i] << "] " << menuTransaksi[i] << " : " << HIJAU << "+Rp " << nominalTransaksi[i] << RESET << " (" << tipeTransaksi[i] << ")" << endl;
 							} else {
-								cout << nomorHasil << ". " << menuTransaksi[i] << " : " << MERAH << "-Rp " << nominalTransaksi[i] << RESET << " (" << tipeTransaksi[i] << ")" << endl;
+								cout << nomorHasil << ". [" << tanggalTransaksi[i] << "] " << menuTransaksi[i] << " : " << MERAH << "-Rp " << nominalTransaksi[i] << RESET << " (" << tipeTransaksi[i] << ")" << endl;
 							}
 							nomorHasil++;
 						}
@@ -285,15 +295,48 @@ int main() {
 					break;
 				}
 				
-			case 5:
-				cout << "Terima kasih telah menggunkaan aplikasi ini :>" << endl;
+			case 5: {
+				cout << "\n--- Ubah Password Akun ---" << endl;
+				string passLama;
+				cout << "Masukkan password kamu saat ini: ";
+				cin >> passLama;
+				
+				// Verifikasi apakah password lama yng dimasukkan sudah cocok
+				if (passLama != password) {
+					cout << MERAH << "[Gagal] Password lama salah! Akses ditolak." << RESET << endl;
+				} else {
+					string passBaru;
+					do {
+						cout << "Masukkan Password Baru Anda (Min.6 karakter, kombinasi A-Z, Angka 0-9): ";
+						cin >> passBaru;
+					} while (apaPasswordValid(passBaru) == false);
+					
+					// Tulis ulang ke database_akun
+					ofstream fileAkunKeluar("database_akun.txt");
+					if (fileAkunKeluar.is_open()) {
+						fileAkunKeluar << username << endl;
+						fileAkunKeluar << passBaru << endl;
+						fileAkunKeluar.close();
+						
+						// Perbarui variabel password 
+						password == passBaru;
+						cout << HIJAU << "[Sukses] Password berhasil diubah di sistem dan database!" << RESET << endl;
+					} else {
+						cout << MERAH << "[Error] Gagal membuka database untuk memperbarui password." << RESET << endl;
+					} 
+				}
+				break;
+			}	
+			
+			case 6:
+				cout << "Terima kasih telah menggunakan aplikasi ini :>" << endl;	
 				break;
 				
 				default:
-					cout << KUNING << "[Peringatan] Pilihan tidak valid! Silahkan coba lagi." << RESET << endl;				
+					cout << KUNING << "[Peringatan] Pilihan tidak valid! Silahkan coba lagi." << RESET << endl;
     	}
 	 
-	} while(pilihan != 5);
+	} while(pilihan != 6);
     
     return 0;    
 }
