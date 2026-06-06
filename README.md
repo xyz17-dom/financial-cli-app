@@ -1,20 +1,46 @@
-# 💰 Financial CLI Application (C++)
+# Financial CLI Application 💰
 
-A text-based (Command Line Interface) financial tracker application designed using C++. This project was built as a practical implementation of programming logic, Arrays, File I/O, conditional control structures, and string manipulation from my 1st semester in Informatics Engineering. This is my very first project in this 2nd semester.
+A C++ based Command Line Interface (CLI) financial application designed to track incomes and expenses. This project features secure user authentication and persistent file-based database management, making it an ideal tool for personal finance budgeting.
 
-## ✨ Key Features
-* **🛡️ Account Registration & Password Validation:** Users can create an account with password security standards (requires a combination of Uppercase, Lowercase, and Numbers with a minimum of 6 characters).
-* **💾 Auto-Login System (File Database):** Account data is permanently stored in a local text file. The application automatically detects if the user already has an account, eliminating the need to re-register when restarting the app.
-* **📊 Financial Transaction Management:** Supports recording of **Income** and **Expense** transaction types (up to 100 temporary data entries).
-* **🎨 Colored CLI Interface (ANSI Color):** Dynamic and visually appealing display; **Green** for Income/Surplus and **Red** for Expense/Deficit.
-* **📈 Automatic Balance Calculator:** Computes the final financial balance in real-time, complete with the user's financial health status.
-* **🗑️ Structured Transaction Deletion:** Deletes specific transaction data using a clean array index shifting logic.
+## 🚀 Features
 
-## 🛠️ How to Run the Application
-1. Clone or download the `Aplikasi Keuangan.cpp` file.
-2. Open the file using your favorite IDE (VS Code, Dev-C++, or Code::Blocks).
-3. Compile and Run the program.
-4. If run for the first time, the system will automatically prompt for a new account registration.
+- **Secure Authentication & Account Management**: 
+  - User registration and login system with maximum login attempts.
+  - Password validator requiring a combination of uppercase, lowercase, and numeric characters.
+  - Built-in secure **Change Password** option directly from the main menu.
+- **Transaction Tracker**: Easily log new financial entries as either *Income* (Pemasukan) or *Expense* (Pengeluaran).
+- **Date & Timestamping**: Every single transaction is automatically saved with its respective date record.
+- **Persistent Storage**: Data is saved locally using file handling (`database_akun.txt` and `database_transaksi.txt`), ensuring data is not lost when the program closes.
+- **Live Balance & Status Summary**: Dynamically calculates total incomes, total expenses, and highlights surplus or negative balance statuses with terminal color coding.
+- **Advanced Operations**:
+  - **Search Feature**: Quickly search for past entries using specific keywords.
+  - **Delete Record**: Remove incorrect entries with real-time file synchronization.
 
----
-*This project is being developed step-by-step to build a strong fundamental in programming.*
+## 🛠️ Tech Stack
+
+- **Language**: C++
+- **Concepts Used**: Array Manipulation, File Handling (I/O Streams), Functions, Data Structures, Control Flow, and Linear Search Algorithm.
+
+## 🖥️ Main Menu Structure
+
+```text
+=== APLIKASI KEUANGAN ===
+1. Tambah Transaksi
+2. Tampilkan Transaksi & Total Saldo
+3. Hapus Transaksi
+4. Cari Transaksi
+5. Ubah Password Akun
+6. Keluar
+
+⚙️ **How to Run Locally**
+1. Clone this repository to your local machine:
+git clone [https://github.com/xyz17-dom/financial-cli-app.git](https://github.com/xyz17-dom/financial-cli-app.git)
+2. Navigate to the project directory:
+cd financial-cli-app
+3. Compile the source code using g++:
+g++ financial_app.cpp -o FinancialApp
+4. Execute the compiled binary program:
+**-**On Linux/macOS: ./FinancialApp
+**-**On Windows (Command Prompt/PowerShell): FinancialApp.exe
+
+_Developed as an independent portfolio project by second-semester computer science students_
