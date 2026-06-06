@@ -5,7 +5,7 @@ A C++ based Command Line Interface (CLI) financial application designed to track
 ## 🚀 Features
 
 - **Secure Authentication & Account Management**: 
-  - User registration and login system with maximum login attempts.
+  - User registration and login system with 3 maximum login attempts.
   - Password validator requiring a combination of uppercase, lowercase, and numeric characters.
   - Built-in secure **Change Password** option directly from the main menu.
 - **Transaction Tracker**: Easily log new financial entries as either *Income* (Pemasukan) or *Expense* (Pengeluaran).
@@ -21,8 +21,10 @@ A C++ based Command Line Interface (CLI) financial application designed to track
 - **Language**: C++
 - **Concepts Used**: Array Manipulation, File Handling (I/O Streams), Functions, Data Structures, Control Flow, and Linear Search Algorithm.
 
-## 🖥️ Main Menu Structure
+## 🖥️ Preview / How it Works
 
+1. **Authentication Screen**: Upon starting, the app checks for existing databases. Users must pass the credential validation to access the main menu.
+2. **Main Menu Structure**:
 ```text
 === APLIKASI KEUANGAN ===
 1. Tambah Transaksi
@@ -31,17 +33,33 @@ A C++ based Command Line Interface (CLI) financial application designed to track
 4. Cari Transaksi
 5. Ubah Password Akun
 6. Keluar
+```
 
 ## ⚙️ How to Run Locally
 
-1. Clone this repository to your local machine:
-git clone [https://github.com/xyz17-dom/financial-cli-app.git](https://github.com/xyz17-dom/financial-cli-app.git)
-2. Navigate to the project directory:
-cd financial-cli-app
-3. Compile the source code using g++:
-g++ financial_app.cpp -o FinancialApp
-4. Execute the compiled binary program:
-- On Linux/macOS: ./FinancialApp
-- On Windows (Command Prompt/PowerShell): FinancialApp.exe
+Follow these steps to run the application on your local machine:
 
-Developed as an independent portfolio project by second-semester computer science students
+1. Clone this repository:
+```bash
+git clone [https://github.com/xyz17-dom/financial-cli-app.git](https://github.com/xyz17-dom/financial-cli-app.git)
+```
+2. Navigate to the project directory:
+```bash
+cd financial-cli-app
+```
+3. Compile the source code using g++:
+```bash
+g++ financial_app.cpp -o FinancialApp
+```
+4. Execute the compiled binary program:
+- **On Linux/macOS**:
+  ```bash
+  ./FinancialApp
+  ```
+- **On Windows (Command Prompt/PowerShell)**:
+  ```bash
+  FinancialApp.exe
+  ```
+
+---
+*Developed as an independent portfolio project by a second-semester Computer Science student.*
